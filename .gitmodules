@@ -10,3 +10,6 @@
 [submodule "SpringCloud_client_ratings"]
 	path = SpringCloud_client_ratings
 	url = https://github.com/k-wasilewski/SpringCloud_client_ratings
+[submodule "SpringCloud_server_gateway"]
+	path = SpringCloud_server_gateway
+	url = https://github.com/k-wasilewski/SpringCloud_server_gateway
