@@ -16,3 +16,4 @@
 [submodule "SpringCloud_server_discovery"]
 	path = SpringCloud_server_discovery
 	url = https://github.com/k-wasilewski/SpringCloud_server_discovery
+
