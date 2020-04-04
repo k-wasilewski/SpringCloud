@@ -4,3 +4,6 @@
 [submodule "SpringCloud_client"]
 	path = SpringCloud_client
 	url = https://github.com/k-wasilewski/SpringCloud_client
+[submodule "SpringCloud_client_books"]
+	path = SpringCloud_client_books
+	url = https://github.com/k-wasilewski/SpringCloud_client_books
