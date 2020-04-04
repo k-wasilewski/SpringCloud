@@ -1,3 +1,6 @@
 [submodule "SpringCloud_server_config"]
 	path = SpringCloud_server_config
 	url = https://github.com/k-wasilewski/SpringCloud_server_config
+[submodule "SpringCloud_client"]
+	path = SpringCloud_client
+	url = https://github.com/k-wasilewski/SpringCloud_client
