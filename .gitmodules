@@ -13,3 +13,6 @@
 [submodule "SpringCloud_server_gateway"]
 	path = SpringCloud_server_gateway
 	url = https://github.com/k-wasilewski/SpringCloud_server_gateway
+[submodule "SpringCloud_server_discovery"]
+	path = SpringCloud_server_discovery
+	url = https://github.com/k-wasilewski/SpringCloud_server_discovery
