@@ -1,4 +1,4 @@
-# SpringCloud - Configuration Server + Discovery Server + Gateway Server + Clients
+# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients
 
 A cloud application, managing microservices.
 
