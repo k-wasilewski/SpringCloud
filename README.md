@@ -16,11 +16,11 @@ for all clients and stores the authorization credentials in session.
 
 ### 'Book-service' Client
 Provides REST API for CRUD operations on database entities and is accessible through Gateway, by service name. It also provides
-comprehensive tests with REST Assured API.
+comprehensive tests with REST Assured API and Kafka messaging.
 
 ### 'Rating-service' Client
 Provides REST API for CRUD operations on database entities and is accessible through Gateway, by service name. It also provides
-comprehensive tests with REST Assured API.
+comprehensive tests with REST Assured API and Kafka messaging.
 
 ### Client
 Provides REST API for a simple client, accessing decrypted passwords at Configuration Server.
