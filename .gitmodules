@@ -17,3 +17,6 @@
 	path = SpringCloud_server_discovery
 	url = https://github.com/k-wasilewski/SpringCloud_server_discovery
 
+[submodule "SpringCloud_task_db"]
+	path = SpringCloud_task_db
+	url = https://github.com/k-wasilewski/SpringCloud_task_db
