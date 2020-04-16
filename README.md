@@ -30,5 +30,10 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 
 Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db, Type: Task, URI: maven://com.springcloud:task_db:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db-end -> Create -> Composed task name: wrapper-task_db 
 
+### Task_db2
+A Spring Cloud Task, accessed through gateway server (particularly: via SCDF server). It generates a rating-service operations' history log file.
+
+Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db2, Type: Task, URI: maven://com.springcloud:task_db2:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db2-end -> Create -> Composed task name: wrapper-task_db2
+
 ### Client
 Provides REST API for a simple client, accessing decrypted passwords at Configuration Server.
