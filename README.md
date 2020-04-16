@@ -1,4 +1,4 @@
-# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients
+# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients + Kafka broker + Spring Cloud Tasks via SCDF
 
 A cloud application, managing microservices.
 
