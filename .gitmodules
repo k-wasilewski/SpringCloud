@@ -24,3 +24,6 @@
 [submodule "SpringCloud_task_db2"]
 	path = SpringCloud_task_db2
 	url = https://github.com/k-wasilewski/SpringCloud_task_db2.git
+[submodule "SpringCloud_task_db3"]
+	path = SpringCloud_task_db3
+	url = https://github.com/k-wasilewski/SpringCloud_task_db3
