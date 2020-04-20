@@ -37,5 +37,11 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 1. mvn install
 2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db2, Type: Task, URI: maven://com.springcloud:task_db2:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db2-end -> Create -> Composed task name: wrapper-task_db2
 
+### Task_db3
+A Spring Cloud Task, accessed through gateway server (particularly: via SCDF server). It accepts multipart .sql dump file upload and updates the database.
+
+1. mvn install
+2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db3, Type: Task, URI: maven://com.springcloud:task_db3:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db3-end -> Create -> Composed task name: wrapper-task_db3
+
 ### Client
 Provides REST API for a simple client, accessing decrypted passwords at Configuration Server.
