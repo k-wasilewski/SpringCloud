@@ -1,4 +1,4 @@
-# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients + Kafka broker + Spring Cloud Tasks via SCDF
+# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients + Hibernate + Kafka broker + Spring Cloud Tasks via SCDF
 
 A cloud application, managing microservices.
 
@@ -15,24 +15,22 @@ Acts as proxy and hides complexity of the app by providing all client APIs on on
 for all clients and stores the authorization credentials in session. It also exposes Tasks' endpoints.
 
 ### 'Book-service' Client
-Provides REST API for CRUD operations on database entities and is accessible through Gateway, by service name. It also provides
-comprehensive tests with REST Assured API and Kafka messaging.
+Provides REST API for CRUD operations on database entities and is accessible through Gateway, by service name. It also provides Kafka messaging for logging CRUD operations and comprehensive tests with REST Assured API.
 
 ### 'Rating-service' Client
-Provides REST API for CRUD operations on database entities and is accessible through Gateway, by service name. It also provides
-comprehensive tests with REST Assured API and Kafka messaging.
+Provides REST API for CRUD operations on database entities and is accessible through Gateway, by service name. It also provides Kafka messaging for logging CRUD operations and comprehensive tests with REST Assured API.
 
 ### Spring Cloud Data Flow
 A Spring Cloud Data Flow, after registering Tasks (see: individual tasks) launches particular Spring Boot Apps as Spring Cloud Tasks.
 
 ### Task_db
-A Spring Cloud Task, accessed through gateway server (particularly: via SCDF server). It generates a book-service operations' history log file.
+A Spring Cloud Task, accessed through gateway server (particularly: via SCDF server). It generates a book-service logged operations' history log file.
 
 1. mvn install
 2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db, Type: Task, URI: maven://com.springcloud:task_db:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db-end -> Create -> Composed task name: wrapper-task_db 
 
 ### Task_db2
-A Spring Cloud Task, accessed through gateway server (particularly: via SCDF server). It generates a rating-service operations' history log file.
+A Spring Cloud Task, accessed through gateway server (particularly: via SCDF server). It generates a rating-service logged operations' history log file.
 
 1. mvn install
 2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db2, Type: Task, URI: maven://com.springcloud:task_db2:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db2-end -> Create -> Composed task name: wrapper-task_db2
@@ -42,6 +40,16 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 
 1. mvn install
 2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db3, Type: Task, URI: maven://com.springcloud:task_db3:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db3-end -> Create -> Composed task name: wrapper-task_db3
+
+
+### Database
+docker run --name dataflow-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cloud -p 3307:3306 -d mysql:5.7
+
+
+### Spring Cloud Data Flow server
+https://repo.spring.io/libs-release/org/springframework/cloud/spring-cloud-dataflow-server-local/1.3.0.RELEASE/spring-cloud-dataflow-server-local-1.3.0.RELEASE.jar
+
+java -jar spring-cloud-dataflow-server-local-1.3.0.RELEASE.jar --spring.datasource.url=jdbc:mysql://localhost:3307/cloud --spring.datasource.username=root --spring.datasource.password=root --spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 
 ### Client
 Provides REST API for a simple client, accessing decrypted passwords at Configuration Server.
