@@ -1,5 +1,7 @@
 *.jar
 db
 *.yml
-*.save
+*.save*
+
+
 Dockerfile
