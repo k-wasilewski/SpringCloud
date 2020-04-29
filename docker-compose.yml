@@ -39,6 +39,21 @@ services:
     networks:
       - sc1
 
+  client:
+    container_name: client
+    image: client:latest
+    ports:
+      - 8082:8082
+    links:
+      - server
+      - discovery
+    depends_on:
+      - server
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://server:8888/login"]
+    networks:
+      - sc1
+
   redis:
     image: redis
     container_name: redis
