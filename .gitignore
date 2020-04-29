@@ -1,6 +1,5 @@
 *.jar
 db
-*.yml
 *.save*
 
 
