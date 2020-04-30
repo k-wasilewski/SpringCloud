@@ -2,6 +2,8 @@
 
 A cloud application, managing microservices.
 
+If you want to deploy all of the services locally - change all services' hosts (inside application.properties or bootstrap.properties) to 'localhost'.
+
 ### Configuration Server
 Provides, manages and centralizes the configuration to externalize the configuration of different modules; via GIT repository.
 
@@ -41,6 +43,17 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 1. mvn install
 2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db3, Type: Task, URI: maven://com.springcloud:task_db3:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db3-end -> Create -> Composed task name: wrapper-task_db3
 
+### Redis server
+docker run --name dataflow-redis -p 6379:6379 -d redis
+
+### Apache Kafka
+https://www.apache.org/dyn/closer.cgi?path=/kafka/2.5.0/kafka_2.12-2.5.0.tgz
+
+tar -xzf kafka_2.12-2.5.0.tgz
+cd kafka_2.12-2.5.0
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+
 ### Database
 docker run --name dataflow-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cloud -p 3306:3306 -d mysql:5.7
 
@@ -54,6 +67,9 @@ Provides REST API for a simple client, accessing decrypted passwords at Configur
 
 ### docker-compose
 Alternatively, you can:
-- build Dockerfile images ('server', 'discovery', 'gateway', 'books', 'ratings', 'client', 'scdf');
+- package all services;
+- build Dockerfile images ('server', 'discovery', 'books', 'ratings', 'client');
 - run docker-compose up;
+- run server_gateway jar; 
+- run Spring Cloud Data Flow server jar;
 - install the tasks locally and register them at SCDF.
