@@ -43,7 +43,7 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 
 
 ### Database
-docker run --name dataflow-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cloud -p 3307:3306 -d mysql:5.7
+docker run --name dataflow-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cloud -p 3306:3306 -d mysql:5.7
 
 
 ### Spring Cloud Data Flow server
