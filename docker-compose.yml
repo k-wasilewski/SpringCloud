@@ -22,23 +22,6 @@ services:
     networks:
       - sc1
 
-  gateway:
-    container_name: gateway
-    image: gateway:latest
-    ports:
-      - 8084:8084
-    links:
-      - server
-      - discovery
-      - redis
-    depends_on:
-      - server
-      - redis
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://server:8888/login"]
-    networks:
-      - sc1
-
   client:
     container_name: client
     image: client:latest
@@ -87,12 +70,6 @@ services:
       - kafka
     healthcheck:
       test: ["CMD", "curl", "-f", "http://server:8888/login"]
-    networks:
-      - sc1
-
-  scdf:
-    container_name: scdf
-    image: scdf:latest
     networks:
       - sc1
 
