@@ -72,6 +72,28 @@ services:
     networks:
       - sc1
 
+  ratings:
+    container_name: ratings
+    image: ratings:latest
+    ports:
+      - 8086:8086
+    links:
+      - server
+      - discovery
+      - db
+    depends_on:
+      - server
+      - db
+      - kafka
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://server:8888/login"]
+    networks:
+      - sc1
+
+  scdf:
+    container_name: scdf
+    image: scdf:latest
+
   zookeeper:
     container_name: zookeper
     image: 'bitnami/zookeeper:latest'
