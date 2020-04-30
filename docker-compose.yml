@@ -93,6 +93,8 @@ services:
   scdf:
     container_name: scdf
     image: scdf:latest
+    networks:
+      - sc1
 
   zookeeper:
     container_name: zookeper
