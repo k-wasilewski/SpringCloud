@@ -1,4 +1,4 @@
-# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients + Hibernate + Kafka broker + Spring Cloud Tasks via SCDF + REST Assured
+# SpringCloud - Configuration Server + Discovery Server + Gateway Server + REST API Clients + Hibernate + Kafka broker + Spring Cloud Tasks via SCDF + REST Assured + Docker
 
 A cloud application, managing microservices.
 
@@ -41,10 +41,8 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 1. mvn install
 2. Registering at SCDF: http://localhost:9393/dashboard -> Apps/Register application -> Name: task_db3, Type: Task, URI: maven://com.springcloud:task_db3:0.0.1-SNAPSHOT -> Tasks/Create task -> start-task_db3-end -> Create -> Composed task name: wrapper-task_db3
 
-
 ### Database
 docker run --name dataflow-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cloud -p 3306:3306 -d mysql:5.7
-
 
 ### Spring Cloud Data Flow server
 https://repo.spring.io/libs-release/org/springframework/cloud/spring-cloud-dataflow-server-local/1.3.0.RELEASE/spring-cloud-dataflow-server-local-1.3.0.RELEASE.jar
@@ -53,3 +51,9 @@ java -jar spring-cloud-dataflow-server-local-1.3.0.RELEASE.jar --spring.datasour
 
 ### Client
 Provides REST API for a simple client, accessing decrypted passwords at Configuration Server.
+
+### docker-compose
+Alternatively, you can:
+- build Dockerfile images ('server', 'discovery', 'gateway', 'books', 'ratings', 'client', 'scdf');
+- run docker-compose up;
+- install the tasks locally and register them at SCDF.
