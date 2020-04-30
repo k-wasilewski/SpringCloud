@@ -54,6 +54,49 @@ services:
     networks:
       - sc1
 
+  books:
+    container_name: books
+    image: books:latest
+    ports:
+      - 8085:8085
+    links:
+      - server
+      - discovery
+      - db
+    depends_on:
+      - server
+      - db
+      - kafka
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://server:8888/login"]
+    networks:
+      - sc1
+
+  zookeeper:
+    container_name: zookeper
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - 2181:2181
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - sc1
+
+  kafka:
+    image: 'bitnami/kafka:latest'
+    container_name: kafka
+    ports:
+      - 9092:9092
+    environment:
+      - ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_PORT=9092
+    depends_on:
+      - zookeeper
+    networks:
+      - sc1
+
   redis:
     image: redis
     container_name: redis
@@ -66,14 +109,13 @@ services:
     image: mysql:5.7
     container_name: db
     restart: always
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci --skip-character-set-client-handshake
     environment:
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=cloud
     volumes:
       - /home/kuba/Desktop/projects/SpringCloud/db:/var/lib/mysql
-    ports:
-      - 3307:3306
     networks:
       - sc1
 
