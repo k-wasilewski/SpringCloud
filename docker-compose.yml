@@ -40,6 +40,8 @@ services:
       test: ["CMD", "curl", "-f", "http://server:8888/login"]
     networks:
       - sc1
+    volumes:
+      - /home/kuba/Desktop/projects/SpringCloud:/home/kuba/Desktop/projects/SpringCloud
 
   client:
     container_name: client
