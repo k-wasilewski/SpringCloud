@@ -22,6 +22,24 @@ services:
     networks:
       - sc1
 
+  gateway:
+    container_name: gateway
+    image: gateway:latest
+    ports:
+      - 8084:8084
+    links:
+      - server
+      - discovery
+      - books
+      - ratings
+      - client
+    depends_on:
+      - server
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://server:8888/login"]
+    networks:
+      - sc1
+
   client:
     container_name: client
     image: client:latest
