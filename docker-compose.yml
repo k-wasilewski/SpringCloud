@@ -33,6 +33,7 @@ services:
       - books
       - ratings
       - client
+      - scdf
     depends_on:
       - server
     healthcheck:
@@ -121,6 +122,14 @@ services:
     container_name: redis
     ports:
       - 6379:6379
+    networks:
+      - sc1
+  
+  scdf
+    image: scdf
+    container_name: scdf
+    ports:
+      - 9393:9393
     networks:
       - sc1
 
