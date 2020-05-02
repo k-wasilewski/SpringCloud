@@ -68,8 +68,7 @@ Provides REST API for a simple client, accessing decrypted passwords at Configur
 ### docker-compose
 Alternatively, you can:
 - package all services;
-- build Dockerfile images ('server', 'discovery', 'books', 'ratings', 'client');
+- build Dockerfile images ('server', 'discovery', 'gateway', 'books', 'ratings', 'client');
 - run docker-compose up;
-- run server_gateway jar; 
 - run Spring Cloud Data Flow server jar;
 - install the tasks locally and register them at SCDF.
