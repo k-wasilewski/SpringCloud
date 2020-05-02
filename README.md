@@ -47,12 +47,12 @@ A Spring Cloud Task, accessed through gateway server (particularly: via SCDF ser
 docker run --name dataflow-redis -p 6379:6379 -d redis
 
 ### Apache Kafka
-https://www.apache.org/dyn/closer.cgi?path=/kafka/2.5.0/kafka_2.12-2.5.0.tgz
-
-tar -xzf kafka_2.12-2.5.0.tgz
-cd kafka_2.12-2.5.0
-bin/zookeeper-server-start.sh config/zookeeper.properties
-bin/kafka-server-start.sh config/server.properties
+https://www.apache.org/dyn/closer.cgi?path=/kafka/2.5.0/kafka_2.12-2.5.0.tgz<br />
+<br />
+tar -xzf kafka_2.12-2.5.0.tgz<br />
+cd kafka_2.12-2.5.0<br />
+bin/zookeeper-server-start.sh config/zookeeper.properties<br />
+bin/kafka-server-start.sh config/server.properties<br />
 
 ### Database
 docker run --name dataflow-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cloud -p 3306:3306 -d mysql:5.7
