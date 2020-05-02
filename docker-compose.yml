@@ -132,6 +132,8 @@ services:
     container_name: scdf
     ports:
       - 9393:9393
+    volumes:
+    - /home/kuba/.m2:/root/.m2
     networks:
       - sc1
 
