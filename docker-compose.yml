@@ -127,7 +127,7 @@ services:
     networks:
       - sc1
   
-  scdf
+  scdf:
     image: scdf
     container_name: scdf
     ports:
